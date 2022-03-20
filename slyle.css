@@ -51,16 +51,92 @@
   .content {
   }
   .profile {
+    display: flex;
+    justify-content: flex-start;
+    margin: 40px auto 0;
+    max-width: 880px;
   }
   .profile__avatar {
+    border-radius: 50%;
   }
+
   .profile__info {
-  }
+    margin-top: 22px;
+    margin-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 336px;
+
+
+      }
+
   .profile__name {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
   }
   .profile__about {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
   }
   .profile__edit-button {
   }
   .add-button {
+  }
+
+  .gallery {
+    display: grid;
+    max-width: 880px;
+    margin: 47px auto 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 17px;
+
+  }
+  .card {
+    width: 282px;
+    height: 361px;
+    background-color: #FFFFFF;
+    color: black;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  .card__picture {
+    border-radius: 10px 10px 0px 0px;
+    overflow: hidden;
+    object-fit: scale-down;
+  }
+  .card__title {
+    margin-left: 21px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+  }
+
+  .footer {
+    margin:67px auto 60px 200px;
+  }
+  
+  .footer_cp {
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #545454;
   }
