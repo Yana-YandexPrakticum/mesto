@@ -1,15 +1,18 @@
 // Initialize Variables
 let closePopup = document.querySelector(".popupclose");
-let overlay = document.querySelector(".overlay");
-let profileEditPopup = document.querySelector(".profile-edit-popup");
+let popup = document.querySelector(".popup");
+//let profileEditPopup = document.querySelector(".popup__container");
 let button = document.querySelector(".profile__edit-button");
 // Close Popup Event
 closePopup.onclick = function () {
-  overlay.style.display = 'none';
-  profileEditPopup.style.display = 'none';
+  //popup.style.display = 'none';
+  popup.classList.remove('popup_opened');
+  //profileEditPopup.style.display = 'none';
+
 };
-// Show Overlay and Popup
+// Show popup and Popup
 button.onclick = function () {
-  overlay.style.display = 'block';
-  profileEditPopup.style.display = 'block';
+  //popup.style.display = 'block';
+  popup.classList.add('popup_opened');
+  //profileEditPopup.style.display = 'block';
 }
