@@ -10,30 +10,28 @@ let saveForm = document.querySelector(".popup__save-button");
 let openForm = document.querySelector(".profile__edit-button");
 
 // Save Popup Event
-
-
-saveForm.onclick = function () {
+saveForm.addEventListener('click', function () {
   profileName.textContent = formName.value;
   profileAbout.textContent = formAbout.value;
   popup.classList.remove('popup_opened');
-};
+});
 
 // Close Popup Event
-closePopup.onclick = function () {
+closePopup.addEventListener('click', function () {
   //popup.style.display = 'none';
   popup.classList.remove('popup_opened');
   //profileEditPopup.style.display = 'none';
 
-};
+});
 // Show popup and Popup
-openForm.onclick = function () {
+openForm.addEventListener('click', function () {
   //popup.style.display = 'block';
   formName.value = profileName.textContent;
   formAbout.value = profileAbout.textContent;
   popup.classList.add('popup_opened');
   //profileEditPopup.style.display = 'block';
 
-}
+});
 
 //addButton.addEventListener('click', addSong);
 
