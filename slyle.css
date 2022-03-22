@@ -91,7 +91,7 @@
   .profile__edit-button {
     margin-left: 18px;
     margin-top: 37px;
-    background-color: black;
+    background-color:  #000000;;
     border: 1px solid #FFFFFF;
     width: 24px;
     height: 24px;
@@ -107,7 +107,7 @@
   .add-button {
     margin-left: 244px;
     margin-top: 35px;
-    background-color: black;
+    background-color:  #000000;;
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 2px;
@@ -138,7 +138,7 @@
     width: 282px;
     height: 361px;
     background-color: #FFFFFF;
-    color: black;
+    color:  #000000;;
     border-radius: 10px 10px 10px 10px;
   }
 
@@ -199,3 +199,125 @@
     line-height: 22px;
     color: #545454;
   }
+
+.popup {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: none;
+}
+
+.popup__container {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background:rgba(255,255,255,1);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  width: 430px;
+  height: 330px;
+  margin-left: -215px; /*Half the value of width to center div*/
+  margin-top: -175px; /*Half the value of height to center div*/
+  /*z-index: 200;*/
+
+}
+
+.popup_opened{
+   display: block;
+}
+.popup_close {
+  position: relative;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  /*margin-right: -40px;*/
+  margin-left: 438px;
+  margin-top: -40px;
+  cursor: pointer;
+}
+
+.popup__close-img{
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.popupcontent {
+  padding: 10px;
+}
+
+input, button {
+  border: none;
+}
+
+/*.input {
+  display: flex;
+  flex-direction: column;
+
+}*/
+
+.input_title{
+  width: 330px;
+  height: 23px;
+  margin: 34px 64px 0 36px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+
+}
+
+
+.input__text {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  width: 358px;
+  height: 27px;
+  border-bottom: 1px solid #f1f1f1;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.input__text:focus{
+  outline:none;
+  border: 2px solid blue;
+  border-radius: 3px;
+}
+
+.input__text_type_name {
+  margin: 54px auto 0;
+}
+.input__text_type_about {
+  margin: 30px auto 0;
+}
+.form__submit-btn {
+  margin: 48px auto 0;
+  background-color:  #000000;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  width: 358px;
+  height: 50px;
+  cursor: pointer;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.form__submit-btn_action_add {
+}
