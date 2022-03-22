@@ -1,5 +1,5 @@
 // Initialize Variables
-let closePopup = document.querySelector(".popupclose");
+let closePopup = document.querySelector(".popup_close");
 let popup = document.querySelector(".popup");
 //let profileEditPopup = document.querySelector(".popup__container");
 let button = document.querySelector(".profile__edit-button");
@@ -16,3 +16,5 @@ button.onclick = function () {
   popup.classList.add('popup_opened');
   //profileEditPopup.style.display = 'block';
 }
+
+
