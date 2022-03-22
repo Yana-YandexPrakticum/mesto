@@ -303,7 +303,7 @@ input, button {
 .input__text_type_about {
   margin: 30px auto 0;
 }
-.form__submit-btn {
+.popup__save-button {
   margin: 48px auto 0;
   background-color:  #000000;
   border: 1px solid #000000;
