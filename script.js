@@ -1,10 +1,10 @@
 // Initialize Variables
-let closePopup = document.querySelector(".popup_close");
+let closePopup = document.querySelector(".popup__close");
 let popup = document.querySelector(".popup");
 let profileName = document.querySelector(".profile__name");
 let profileAbout = document.querySelector(".profile__about");
-let formName = document.querySelector(".input__text_type_name");
-let formAbout = document.querySelector(".input__text_type_about");
+let formName = document.querySelector(".popup__text_type_name");
+let formAbout = document.querySelector(".popup__text_type_about");
 
 let saveForm = document.querySelector(".popup__save-button");
 let openForm = document.querySelector(".profile__edit-button");
