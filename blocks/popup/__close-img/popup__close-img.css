@@ -4,3 +4,7 @@
   height: 100%;
   object-fit: fill;
 }
+
+.popup__close-img:hover{
+  opacity: 0.6;
+}

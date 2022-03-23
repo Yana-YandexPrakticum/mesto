@@ -9,3 +9,7 @@
   height: 50px;
   cursor: pointer;
 }
+
+.add-button:hover{
+  opacity: 0.6;
+}

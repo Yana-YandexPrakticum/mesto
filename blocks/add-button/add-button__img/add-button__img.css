@@ -1,5 +1,9 @@
-.add-butto__img{
+.add-button__img{
   margin: auto;
   width: 22px;
   height: 22px;
+}
+
+.add-button__img:hover{
+  opacity: 0.6;
 }

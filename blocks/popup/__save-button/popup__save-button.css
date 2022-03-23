@@ -13,3 +13,7 @@
   text-align: center;
   color: #FFFFFF;
 }
+
+.popup__save-button:hover{
+  opacity: 0.6;
+}
