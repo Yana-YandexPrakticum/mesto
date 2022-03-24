@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Место</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./vendor/normalize.css">
+  <link rel="stylesheet" href="./page/index.css">
+</head>
+
+<body class="body">
+  <div class="page">
+    <header class="header">
+      <img class="header__logo" src="./images/header-logo.svg" alt="Россия">
+      <div class="header__hr"></div>
+    </header>
+
+    <main class="content">
+
+      <section class="profile">
+        <img src="./images/Kusto.jpg" class="profile__avatar" alt="Аватар">
+        <div class="profile__info">
+          <p class="profile__name">Жак-Ив Кусто</p>
+
+          <button type="button" class="profile__edit-button"><img src="./images/button-edit.svg"
+              alt="Редактировать профиль" class="profile__edit-button-img">
+          </button>
+          <p class="profile__about">Исследователь океана</p>
+        </div>
+        <button type="button" class="add-button"><img src="./images/add-button.svg" alt="Добавить место"
+            class="add-button__img"></button>
+
+      </section>
+
+
+
+      <section class="gallery">
+        <div class="card">
+          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="picture" class="card__picture">
+          <div class="card__info">
+            <p class="card__title">КарачаевскКарачаевскКарачаевскКарачаевскКарачаевскКарачаевскКарачаевскКарачаевск</p>
+            <button type="button" class="card__like-button"><img src="./images/heart-disabled.svg" alt="Нравится"
+                class="card__like-button-img"></button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="picture" class="card__picture">
+          <div class="card__info">
+            <p class="card__title">Карачаевск</p>
+            <button type="button" class="card__like-button"><img src="./images/heart-disabled.svg" alt="Нравится"
+                class="card__like-button-img"></button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="picture" class="card__picture">
+          <div class="card__info">
+            <p class="card__title">Карачаевск</p>
+            <button type="button" class="card__like-button"><img src="./images/heart-disabled.svg" alt="Нравится"
+                class="card__like-button-img"></button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="picture" class="card__picture">
+          <div class="card__info">
+            <p class="card__title">Карачаевск</p>
+            <button type="button" class="card__like-button"><img src="./images/heart-disabled.svg" alt="Нравится"
+                class="card__like-button-img"></button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="picture" class="card__picture">
+          <div class="card__info">
+            <p class="card__title">Карачаевск</p>
+            <button type="button" class="card__like-button"><img src="./images/heart-disabled.svg" alt="Нравится"
+                class="card__like-button-img"></button>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="./images/kirill-pershin-1088404-unsplash.jpg" alt="picture" class="card__picture">
+          <div class="card__info">
+            <p class="card__title">Карачаевск</p>
+            <button type="button" class="card__like-button"><img src="./images/heart-disabled.svg" alt="Нравится"
+                class="card__like-button-img"></button>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer_cp">&copy; 2020 Mesto Russia</p>
+    </footer>
+  </div>
+
+
+
+  <div class="popup">
+    <div class="popup__container">
+      <button type="button" class="popup__close"><img src="./images/close_icon.svg" alt="Закрыть"
+          class="popup__close-img">
+      </button>
+
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <input type="text" placeholder="Имя" class="popup__text popup__text_type_name">
+      <input type="text" placeholder="Информация" class="popup__text popup__text_type_about">
+      <button class="popup__save-button">
+        Сохранить
+      </button>
+
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
