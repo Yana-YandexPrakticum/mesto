@@ -18,3 +18,10 @@
   border: 2px solid blue;
   border-radius: 3px;
 }
+
+@media (max-width:320px){
+  .popup__text{
+    width: 238px;
+    /*height: 14px;*/
+  }
+}
