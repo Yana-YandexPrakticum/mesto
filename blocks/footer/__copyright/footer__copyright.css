@@ -1,4 +1,4 @@
-.footer_cp {
+.footer__copyright {
   margin: 0;
   font-family: 'Inter';
   font-style: normal;
@@ -9,7 +9,7 @@
 }
 
 @media (max-width:320px){
-  .footer_cp {
+  .footer__copyright {
     font-size: 14px;
     line-height: 17px;
   }
