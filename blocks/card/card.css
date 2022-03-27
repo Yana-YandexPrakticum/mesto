@@ -6,7 +6,7 @@
     "picture picture"
     "text like";
   width: 282px;
-  height: 361px;
+  min-height: 361px;
   background-color: #FFFFFF;
   color:  #000000;
   border-radius: 10px 10px 10px 10px;
