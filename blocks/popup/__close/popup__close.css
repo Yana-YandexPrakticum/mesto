@@ -10,7 +10,7 @@
   background-color: #000000;
 }
 
-@media (max-width:320px){
+@media (max-width:640px){
   .popup__close {
     width: 20px;
     height: 20px;

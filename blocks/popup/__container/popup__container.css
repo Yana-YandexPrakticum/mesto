@@ -13,7 +13,7 @@
   margin-top: -175px;
 }
 
-@media (max-width:320px){
+@media (max-width:640px){
   .popup__container {
     width: 282px;
     height: 322px;

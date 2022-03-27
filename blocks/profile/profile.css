@@ -5,7 +5,14 @@
   max-width: 880px;
 }
 
-@media (max-width:320px){
+@media (max-width:900px){
+  .profile {
+    width: 90%;
+  }
+}
+
+
+@media (max-width:640px){
   .profile {
     display: flex;
     flex-direction: column;

@@ -7,6 +7,14 @@
   gap: 41px;
 }
 
+@media (max-width:900px){
+
+  .header {
+    width: 90%;
+  }
+
+}
+
 @media (max-width:320px){
 
   .header {

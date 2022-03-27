@@ -1,5 +1,4 @@
 .popup__text{
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -19,7 +18,7 @@
   border-radius: 3px;
 }
 
-@media (max-width:320px){
+@media (max-width:640px){
   .popup__text{
     width: 238px;
     /*height: 14px;*/
