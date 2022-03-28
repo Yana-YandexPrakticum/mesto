@@ -1,5 +1,5 @@
 // Initialize Variables
-let formElement = document.querySelector('[name="editProfile"]');
+let formElement = document.querySelector(".popup__form");
 let closeButton = document.querySelector(".popup__close");
 let popup = document.querySelector(".popup");
 let profileName = document.querySelector(".profile__name");
@@ -23,7 +23,7 @@ function formSubmitHandler(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   profileName.textContent = formName.value;
   profileAbout.textContent = formAbout.value;
-  popup.classList.remove('popup_opened');
+  closePopup();
 }
 
 
