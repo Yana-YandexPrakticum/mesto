@@ -5,6 +5,11 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 41px;
+
+  border: none;
+  border-bottom: 1px solid RGBA(84,84,84,0.7);
+  padding-bottom: 40px ;
+  box-sizing: border-box;
 }
 
 @media (max-width:900px){

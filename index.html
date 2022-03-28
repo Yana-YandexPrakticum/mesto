@@ -6,7 +6,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./vendor/normalize.css">
   <link rel="stylesheet" href="./page/index.css">
 </head>
 
@@ -14,7 +13,6 @@
   <div class="page">
     <header class="header">
       <img class="header__logo" src="./images/header-logo.svg" alt="Россия">
-      <div class="header__hr"></div>
     </header>
 
     <main class="content">
@@ -22,7 +20,7 @@
       <section class="profile">
         <img src="./images/Kusto.jpg" class="profile__avatar" alt="Аватар">
         <div class="profile__info">
-          <p class="profile__name">Жак-Ив Кусто</p>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
 
           <button type="button" class="profile__edit-button"></button>
           <p class="profile__about">Исследователь океана</p>
@@ -86,17 +84,15 @@
       <button type="button" class="popup__close"></button>
 
       <h2 class="popup__title">Редактировать профиль</h2>
-      <input type="text" placeholder="Имя" class="popup__text popup__text_type_name">
-      <input type="text" placeholder="Информация" class="popup__text popup__text_type_about">
-      <button class="popup__save-button">
-        Сохранить
-      </button>
-
+      <form name="editProfile" class="popup__form">
+        <input type="text" placeholder="Имя" name="profileName" class="popup__text popup__text_type_name">
+        <input type="text" placeholder="Информация" name="profileAbout" class="popup__text popup__text_type_about">
+        <button type="submit" class="popup__save-button">Сохранить</button>
+      </form>
     </div>
   </div>
 
-
-  <script src="script.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
