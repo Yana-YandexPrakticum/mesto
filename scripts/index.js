@@ -1,39 +1,71 @@
 // Initialize Variables
-let formElement = document.querySelector(".popup__form");
-let closeButton = document.querySelector(".popup__close");
-let popup = document.querySelector(".popup");
-let profileName = document.querySelector(".profile__name");
-let profileAbout = document.querySelector(".profile__about");
-let formName = document.querySelector(".popup__text_type_name");
-let formAbout = document.querySelector(".popup__text_type_about");
-let openForm = document.querySelector(".profile__edit-button");
+const editProfile = document.querySelector("#popupEditProfile");
+const profileClose = editProfile.querySelector(".popup__close");
+const profileForm = editProfile.querySelector(".popup__form");
+const profileName = editProfile.querySelector(".popup__text_type_name");
+const profileAbout = editProfile.querySelector(".popup__text_type_about");
+const name = document.querySelector(".profile__name");
+const about = document.querySelector(".profile__about");
 
+const openProfileForm = document.querySelector(".profile__edit-button");
 
-function closePopup() {
-  popup.classList.remove('popup_opened');
+function closeProfilePopup() {
+  editProfile.classList.remove('popup_opened');
 };
 
-function openPopup() {
-  formName.value = profileName.textContent;
-  formAbout.value = profileAbout.textContent;
-  popup.classList.add('popup_opened');
+function openProfilePopup() {
+  profileName.value = name.textContent;
+  profileAbout.value = about.textContent;
+  editProfile.classList.add('popup_opened');
 };
 
-function formSubmitHandler(evt) {
+function submitProfile(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  profileName.textContent = formName.value;
-  profileAbout.textContent = formAbout.value;
-  closePopup();
-}
+  name.textContent = profileName.value;
+  about.textContent = profileAbout.value;
+  closeProfilePopup();
+};
 
+profileClose.addEventListener('click', closeProfilePopup);
 
-closeButton.addEventListener('click', closePopup);
-
-openForm.addEventListener('click', openPopup);
+openProfileForm.addEventListener('click', openProfilePopup);
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
+profileForm.addEventListener('submit', submitProfile);
+
+
+// Initialize Variables
+const popupAddCard = document.querySelector("#popupAddCard");
+const cardClose = popupAddCard.querySelector(".popup__close");
+const cardForm = popupAddCard.querySelector(".popup__form");
+const cardName = popupAddCard.querySelector(".popup__text_type_name");
+const cardLink = popupAddCard.querySelector(".popup__text_type_link");
+
+const openCardForm = document.querySelector(".profile__add-button");
+
+function closeCardPopup() {
+  popupAddCard.classList.remove('popup_opened');
+};
+
+function openCardPopup() {
+  popupAddCard.classList.add('popup_opened');
+};
+
+function addCard(evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+  createCard(cardName.value, cardLink.value);
+  closeCardPopup();
+};
+
+cardClose.addEventListener('click', closeCardPopup);
+
+openCardForm.addEventListener('click', openCardPopup);
+
+// Прикрепляем обработчик к форме:
+// он будет следить за событием “submit” - «отправка»
+cardForm.addEventListener('submit', addCard);
+
 
 function createCard(name, link) {
   const cardTemplate = document.querySelector('#card-template').content;
