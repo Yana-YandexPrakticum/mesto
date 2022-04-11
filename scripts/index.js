@@ -82,8 +82,30 @@ function createCard(name, link) {
   newCard.querySelector('.card__trash-button').addEventListener('click', function (evt) {
     evt.target.parentElement.remove();
   });
+  newCard.querySelector('.card__picture').addEventListener('click', openPicture);
   return newCard;
 };
+
+
+
+const imagePopup = document.querySelector("#popupImage");
+const imageClose = imagePopup.querySelector(".popup__close");
+
+function openPicture(evt) {
+  const image = imagePopup.querySelector('.popup__image');
+  image.src = evt.target.src;
+  image.alt = evt.target.alt;
+  const title = imagePopup.querySelector('.popup__image-title');
+  title.textContent = evt.target.alt;
+  imagePopup.classList.add('popup_opened');
+};
+
+function closeImagePopup() {
+  imagePopup.classList.remove('popup_opened');
+};
+
+
+imageClose.addEventListener('click', closeImagePopup);
 
 const initialCards = [
   {
