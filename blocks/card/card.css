@@ -1,5 +1,6 @@
 .card {
   display: grid;
+  position: relative;
   grid-template-columns: 240px 1fr;
   grid-template-rows: repeat(1fr, 2);
   grid-template-areas:
