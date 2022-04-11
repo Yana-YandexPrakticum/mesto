@@ -1,4 +1,5 @@
 // Initialize Variables
+const gallery = document.querySelector('.gallery');
 const editProfile = document.querySelector("#popupEditProfile");
 const profileClose = editProfile.querySelector(".popup__close");
 const profileForm = editProfile.querySelector(".popup__form");
@@ -54,7 +55,7 @@ function openCardPopup() {
 
 function addCard(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  createCard(cardName.value, cardLink.value);
+  gallery.prepend(createCard(cardName.value, cardLink.value));
   closeCardPopup();
 };
 
@@ -75,7 +76,13 @@ function createCard(name, link) {
   image.src = link;
   image.alt = name;
   title.textContent = name;
-  document.querySelector('.gallery').appendChild(newCard);
+  newCard.querySelector('.card__like-button').addEventListener('click', function (evt) {
+    evt.target.classList.toggle('card__like-button_active');
+  });
+  newCard.querySelector('.card__trash-button').addEventListener('click', function (evt) {
+    evt.target.parentElement.remove();
+  });
+  return newCard;
 };
 
 const initialCards = [
@@ -105,5 +112,5 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach(card => createCard(card.name, card.link));
+initialCards.forEach(card => gallery.appendChild(createCard(card.name, card.link)));
 
