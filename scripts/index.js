@@ -1,56 +1,75 @@
-// Initialize Variables
+// Elements of main page
 const gallery = document.querySelector('.gallery');
-const editProfile = document.querySelector("#popupEditProfile");
+const openProfileForm = document.querySelector(".profile__edit-button");
+const openCardForm = document.querySelector(".profile__add-button");
+const name = document.querySelector(".profile__name");
+const about = document.querySelector(".profile__about");
+
+//EditProfile Popup
+const editProfile = document.querySelector(".popup_type_edit-profile");
 const profileClose = editProfile.querySelector(".popup__close");
 const profileForm = editProfile.querySelector(".popup__form");
 const profileName = editProfile.querySelector(".popup__text_type_name");
 const profileAbout = editProfile.querySelector(".popup__text_type_about");
-const name = document.querySelector(".profile__name");
-const about = document.querySelector(".profile__about");
 
-const openProfileForm = document.querySelector(".profile__edit-button");
-
-function closeProfilePopup() {
-  editProfile.classList.remove('popup_opened');
-};
-
-function openProfilePopup() {
-  profileName.value = name.textContent;
-  profileAbout.value = about.textContent;
-  editProfile.classList.add('popup_opened');
-};
-
-function submitProfile(evt) {
-  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-  name.textContent = profileName.value;
-  about.textContent = profileAbout.value;
-  closeProfilePopup();
-};
-
-profileClose.addEventListener('click', closeProfilePopup);
-
-openProfileForm.addEventListener('click', openProfilePopup);
-
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-profileForm.addEventListener('submit', submitProfile);
-
-
-// Initialize Variables
-const popupAddCard = document.querySelector("#popupAddCard");
+//AddCard Poopup
+const popupAddCard = document.querySelector(".popup_type_add-card");
 const cardClose = popupAddCard.querySelector(".popup__close");
 const cardForm = popupAddCard.querySelector(".popup__form");
 const cardName = popupAddCard.querySelector(".popup__text_type_name");
 const cardLink = popupAddCard.querySelector(".popup__text_type_link");
 
-const openCardForm = document.querySelector(".profile__add-button");
+//Image Popup
+const imagePopup = document.querySelector(".popup_type_image");
+const imageClose = imagePopup.querySelector(".popup__close");
+const image = imagePopup.querySelector('.popup__image');
+const title = imagePopup.querySelector('.popup__image-title');
+
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+};
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+};
+
+function closeProfilePopup() {
+  closePopup(editProfile);
+};
+
+function syncProfile(load) {
+  if (load) {
+    profileName.value = name.textContent;
+    profileAbout.value = about.textContent;
+  } else {
+    name.textContent = profileName.value;
+    about.textContent = profileAbout.value;
+  }
+};
+
+function openProfilePopup() {
+  syncProfile(true);
+  openPopup(editProfile);
+};
+
+function submitProfile(evt) {
+  evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
+  syncProfile(false);
+  closeProfilePopup();
+};
 
 function closeCardPopup() {
-  popupAddCard.classList.remove('popup_opened');
+  closePopup(popupAddCard);
+};
+
+function cleanCardPopup() {
+  cardName.value = "";
+  cardLink.value = "";
 };
 
 function openCardPopup() {
-  popupAddCard.classList.add('popup_opened');
+  cleanCardPopup();
+  openPopup(popupAddCard);
 };
 
 function addCard(evt) {
@@ -58,15 +77,6 @@ function addCard(evt) {
   gallery.prepend(createCard(cardName.value, cardLink.value));
   closeCardPopup();
 };
-
-cardClose.addEventListener('click', closeCardPopup);
-
-openCardForm.addEventListener('click', openCardPopup);
-
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-cardForm.addEventListener('submit', addCard);
-
 
 function createCard(name, link) {
   const cardTemplate = document.querySelector('#card-template').content;
@@ -80,59 +90,40 @@ function createCard(name, link) {
     evt.target.classList.toggle('card__like-button_active');
   });
   newCard.querySelector('.card__trash-button').addEventListener('click', function (evt) {
-    evt.target.parentElement.remove();
+    evt.target.closest('.card').remove();
   });
-  newCard.querySelector('.card__picture').addEventListener('click', openPicture);
+  image.addEventListener('click', openPicture);
   return newCard;
 };
 
-
-
-const imagePopup = document.querySelector("#popupImage");
-const imageClose = imagePopup.querySelector(".popup__close");
+function prepareImagePopup(cardImage) {
+  image.src = cardImage.src;
+  image.alt = cardImage.alt;
+  title.textContent = cardImage.alt;
+}
 
 function openPicture(evt) {
-  const image = imagePopup.querySelector('.popup__image');
-  image.src = evt.target.src;
-  image.alt = evt.target.alt;
-  const title = imagePopup.querySelector('.popup__image-title');
-  title.textContent = evt.target.alt;
-  imagePopup.classList.add('popup_opened');
+  prepareImagePopup(evt.target);
+  openPopup(imagePopup);
 };
 
 function closeImagePopup() {
-  imagePopup.classList.remove('popup_opened');
+  closePopup(imagePopup);
 };
 
+profileClose.addEventListener('click', closeProfilePopup);
+openProfileForm.addEventListener('click', openProfilePopup);
+// Прикрепляем обработчик к форме:
+// он будет следить за событием “submit” - «отправка»
+profileForm.addEventListener('submit', submitProfile);
+
+
+cardClose.addEventListener('click', closeCardPopup);
+openCardForm.addEventListener('click', openCardPopup);
+// Прикрепляем обработчик к форме:
+// он будет следить за событием “submit” - «отправка»
+cardForm.addEventListener('submit', addCard);
 
 imageClose.addEventListener('click', closeImagePopup);
 
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 initialCards.forEach(card => gallery.appendChild(createCard(card.name, card.link)));
-
