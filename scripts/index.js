@@ -59,7 +59,7 @@ function syncProfile(load) {
 
 function openProfilePopup() {
   syncProfile(true);
-  resetForm(editProfile);
+  resetForm(editProfile, params);
   openPopup(editProfile);
 };
 
