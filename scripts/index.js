@@ -1,17 +1,17 @@
 // Elements of main page
 const gallery = document.querySelector('.gallery');
-const openProfileForm = document.querySelector(".profile__edit-button");
-const openCardForm = document.querySelector(".profile__add-button");
+const buttonOpenProfileForm = document.querySelector(".profile__edit-button");
+const buttonNewCardForm = document.querySelector(".profile__add-button");
 const name = document.querySelector(".profile__name");
 const about = document.querySelector(".profile__about");
 
-//EditProfile Popup
-const editProfile = document.querySelector(".popup_type_edit-profile");
-const profileClose = editProfile.querySelector(".popup__close");
-const profileForm = editProfile.querySelector(".popup__form");
-const profileName = editProfile.querySelector(".popup__text_type_name");
-const profileAbout = editProfile.querySelector(".popup__text_type_about");
-const profileContainer = editProfile.querySelector(".popup__container");
+//profilePopup Popup
+const profilePopup = document.querySelector(".popup_type_edit-profile");
+const profileClose = profilePopup.querySelector(".popup__close");
+const profileForm = profilePopup.querySelector(".popup__form");
+const profileName = profilePopup.querySelector(".popup__text_type_name");
+const profileAbout = profilePopup.querySelector(".popup__text_type_about");
+const profileContainer = profilePopup.querySelector(".popup__container");
 //AddCard Poopup
 const popupAddCard = document.querySelector(".popup_type_add-card");
 const cardClose = popupAddCard.querySelector(".popup__close");
@@ -27,24 +27,24 @@ const title = imagePopup.querySelector('.popup__image-title');
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  popup.removeEventListener("keydown", closePopupOnEsc);
 };
 
 function closePopupOnEsc(evt) {
   console.log(evt);
   if (evt.key === "Escape") {
     const popup = evt.target.closest('.popup');
-    popup.removeEventListener("keydown", closePopupOnEsc);
     closePopup(popup);
   }
 };
 
 function openPopup(popup) {
-  popup.classList.add('popup_opened');
   popup.addEventListener("keydown", closePopupOnEsc);
+  popup.classList.add('popup_opened');
 };
 
 function closeProfilePopup() {
-  closePopup(editProfile);
+  closePopup(profilePopup);
 };
 
 function syncProfile(load) {
@@ -59,8 +59,8 @@ function syncProfile(load) {
 
 function openProfilePopup() {
   syncProfile(true);
-  resetForm(editProfile, params);
-  openPopup(editProfile);
+  resetForm(profilePopup, params);
+  openPopup(profilePopup);
 };
 
 function submitProfile(evt) {
@@ -130,8 +130,8 @@ function stopPropagation(evt) {
 };
 
 profileClose.addEventListener('click', closeProfilePopup);
-editProfile.addEventListener('click', closeProfilePopup);
-openProfileForm.addEventListener('click', openProfilePopup);
+profilePopup.addEventListener('click', closeProfilePopup);
+buttonOpenProfileForm.addEventListener('click', openProfilePopup);
 profileContainer.addEventListener('click', stopPropagation);
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
@@ -140,7 +140,7 @@ profileForm.addEventListener('submit', submitProfile);
 
 cardClose.addEventListener('click', closeCardPopup);
 popupAddCard.addEventListener('click', closeCardPopup);
-openCardForm.addEventListener('click', openCardPopup);
+buttonNewCardForm.addEventListener('click', openCardPopup);
 cardContainer.addEventListener('click', stopPropagation);
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»

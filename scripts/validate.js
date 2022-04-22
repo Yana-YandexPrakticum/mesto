@@ -64,12 +64,6 @@ const toggleButtonState = (inputList, buttonElement, params) => {
 
 const enableValidation = (params) => {
   const formList = Array.from(document.querySelectorAll(params.formSelector));
-  //formList.forEach(formElement => {
-  //  formElement.addEventListener('submit', evt => {
-  //    evt.preventDefault();
-  //  });
-  //  setEventListener(formElement);
-  //});
   formList.forEach(formElement => setEventListener(formElement, params));
 };
 
@@ -78,8 +72,7 @@ const params = {
   inputSelector: '.popup__text',
   submitButtonSelector: '.popup__save-button',
   inactiveButtonClass: 'popup__save-button_inactive',
-  inputErrorClass: 'popup__text_type_error',
-  errorClass: 'popup__error_visible'
+  inputErrorClass: 'popup__text_type_error'
 };
 
 enableValidation(params);
