@@ -78,6 +78,7 @@ function cleanCardPopup() {
   cardLink.value = "";
   const buttonElement = popupAddCard.querySelector('.popup__save-button');
   buttonElement.setAttribute('disabled', true);
+  buttonElement.classList.add(params.inactiveButtonClass);
 };
 
 function openCardPopup() {
