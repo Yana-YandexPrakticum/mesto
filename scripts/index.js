@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 
 // Elements of main page
 const gallery = document.querySelector('.gallery');
@@ -61,7 +62,7 @@ function syncProfile(load) {
 
 function openProfilePopup() {
   syncProfile(true);
-  resetForm(profilePopup, params);
+  new FormValidator(params, profileForm).resetForm();
   openPopup(profilePopup);
 };
 
@@ -85,7 +86,7 @@ function cleanCardPopup() {
 
 function openCardPopup() {
   cleanCardPopup();
-  //resetForm(popupAddCard);
+  new FormValidator(params, cardForm).resetForm();
   openPopup(popupAddCard);
 };
 
@@ -117,7 +118,6 @@ profileContainer.addEventListener('click', stopPropagation);
 // он будет следить за событием “submit” - «отправка»
 profileForm.addEventListener('submit', submitProfile);
 
-
 cardClose.addEventListener('click', closeCardPopup);
 popupAddCard.addEventListener('click', closeCardPopup);
 buttonNewCardForm.addEventListener('click', openCardPopup);
@@ -129,6 +129,19 @@ cardForm.addEventListener('submit', addCard);
 imageClose.addEventListener('click', closeImagePopup);
 imagePopup.addEventListener('click', closeImagePopup);
 
-initialCards.forEach(card => gallery.appendChild(new Card(card.name, card.link,'#card-template').generateCard()));
+function enableAllValidation(params) {
+  const formList = Array.from(document.querySelectorAll(params.formSelector));
+  formList.forEach(formElement => new FormValidator(params, formElement).enableValidation());
+};
 
+const params = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__text',
+  submitButtonSelector: '.popup__save-button',
+  inactiveButtonClass: 'popup__save-button_inactive',
+  inputErrorClass: 'popup__text_type_error'
+};
+
+initialCards.forEach(card => gallery.appendChild(new Card(card.name, card.link,'#card-template').generateCard()));
+enableAllValidation(params);
 
