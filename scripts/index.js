@@ -23,10 +23,15 @@ const cardName = popupAddCard.querySelector(".popup__text_type_name");
 const cardLink = popupAddCard.querySelector(".popup__text_type_link");
 const cardContainer = popupAddCard.querySelector(".popup__container");
 //Image Popup
-export const imagePopup = document.querySelector(".popup_type_image");
+const imagePopup = document.querySelector(".popup_type_image");
 const imageClose = imagePopup.querySelector(".popup__close");
 const image = imagePopup.querySelector('.popup__image');
 const title = imagePopup.querySelector('.popup__image-title');
+
+function handleCardClick(name, link) {
+  prepareImagePopup(name, link);
+  openPopup(imagePopup);
+}
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
@@ -41,7 +46,7 @@ function closePopupOnEsc(evt) {
   }
 };
 
-export function openPopup(popup) {
+function openPopup(popup) {
   popup.addEventListener("keydown", closePopupOnEsc);
   popup.classList.add('popup_opened');
 };
@@ -62,7 +67,7 @@ function syncProfile(load) {
 
 function openProfilePopup() {
   syncProfile(true);
-  new FormValidator(params, profileForm).resetForm();
+  new FormValidator(params, profileForm).resetValidation();
   openPopup(profilePopup);
 };
 
@@ -86,7 +91,7 @@ function cleanCardPopup() {
 
 function openCardPopup() {
   cleanCardPopup();
-  new FormValidator(params, cardForm).resetForm();
+  new FormValidator(params, cardForm).resetValidation();
   openPopup(popupAddCard);
 };
 
@@ -96,10 +101,10 @@ function addCard(evt) {
   closeCardPopup();
 };
 
-export function prepareImagePopup(cardImage) {
-  image.src = cardImage.src;
-  image.alt = cardImage.alt;
-  title.textContent = cardImage.alt;
+function prepareImagePopup(name, link) {
+  image.src = link;
+  image.alt = name;
+  title.textContent = name;
 };
 
 function closeImagePopup() {
@@ -142,6 +147,10 @@ const params = {
   inputErrorClass: 'popup__text_type_error'
 };
 
-initialCards.forEach(card => gallery.appendChild(new Card(card.name, card.link,'#card-template').generateCard()));
+function createCard(name, link){
+  return new Card(name, link,'#card-template', handleCardClick).generateCard();
+};
+
+initialCards.forEach(card => gallery.appendChild(createCard(card.name,card.link)));
 enableAllValidation(params);
 

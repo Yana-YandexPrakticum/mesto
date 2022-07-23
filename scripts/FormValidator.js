@@ -52,7 +52,7 @@ export default class FormValidator{
         formError.textContent = '';
     };
 
-    resetForm (){
+    resetValidation (){
         this._inputList.forEach(inputElement => this._hideInputError(inputElement));
         this._toggleButtonState();
     };
