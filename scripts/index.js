@@ -45,6 +45,7 @@ function handleCardClick(name, link) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener("keydown", closePopupOnEsc);
 };
 
 function closePopupOnEsc(evt) {
@@ -58,6 +59,7 @@ function closePopupOnEsc(evt) {
 };
 
 function openPopup(popup) {
+  document.addEventListener("keydown", closePopupOnEsc);
   popup.classList.add('popup_opened');
 };
 
@@ -150,8 +152,7 @@ function enableAllValidation() {
 function createCard(name, link){
   return new Card(name, link,'#card-template', handleCardClick).generateCard();
 };
-//
-document.addEventListener("keydown", closePopupOnEsc);
+
 initialCards.forEach(card => gallery.appendChild(createCard(card.name,card.link)));
 enableAllValidation();
 
